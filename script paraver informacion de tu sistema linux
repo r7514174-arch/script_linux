@@ -1,0 +1,45 @@
+import subprocess
+
+print ("INFORMACION DEL SISTEMA")
+print ("------------------------------")
+
+print ( "\n PROCESADOR ")
+print ("------------------------------")
+subprocess.run(["lscpu"])
+
+print (" MEMORIA RAM")
+print ("------------------------------")
+subprocess.run(["free","-h"])
+
+print (" \nDISCOS ")
+print ("------------------------------")
+subprocess.run(["lsblk"])
+
+print (" \nTARJETA  ")
+print ("------------------------------")
+subprocess.run(["lspci"])
+
+
+print ("\n SISTEMA OPERATIVO")
+print ("------------------------------")
+subprocess.run(["cat","/etc/os-release"])
+
+print ("\n   KERNEL  ")
+print ("------------------------------")
+subprocess.run(["uname","-r"])
+
+print (" \n ARQUITECTURA")
+print ("------------------------------")
+subprocess.run(["uname","-m"])
+
+print ("\n PROCESOS ")
+print ("------------------------------")
+subprocess.run(["ps","aux"])
+
+
+print ("\n PROGRAMAS INSTALADOS ")
+print ("-----------------------------")
+subprocess.run("dpkg -l | head -20", shell=True)
+
+print ("\n CONSUMO DE RECURSOS")
+subprocess.run(["top", "-bn1"])
